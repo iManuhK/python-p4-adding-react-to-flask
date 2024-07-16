@@ -4,7 +4,9 @@ import Search from "./Search";
 import MessageList from "./MessageList";
 import NewMessage from "./NewMessage";
 
-const testUser = { username: "Duane" };
+const testUser = { username: "Duane"  };
+
+const API_URL = "http://127.0.0.1:5551"
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -12,7 +14,7 @@ function App() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5555/messages")
+    fetch(`${API_URL}/messages`)
       .then((r) => r.json())
       .then((messages) => setMessages(messages));
   }, []);

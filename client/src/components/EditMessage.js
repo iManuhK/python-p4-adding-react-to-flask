@@ -3,10 +3,12 @@ import React, { useState } from "react";
 function EditMessage({ id, body, onUpdateMessage }) {
   const [messageBody, setMessageBody] = useState(body);
 
+  const API_URL = "http://127.0.0.1:5551"
+
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    fetch(`http://127.0.0.1:5555/messages/${id}`, {
+    fetch(`${API_URL}/messages/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
